@@ -118,40 +118,13 @@ function addTaskForm() {
     addTaskButton.classList.add("addTaskButton");
     addTaskButton.textContent = "Add new task";
 
-    /*    node.addEventListener('submit', (event) => {
-            event.preventDefault();
-            if (titleInput.value != "") {
-                let dueDate;
-                console.log(dueDateInput.value);
-                if (dueDateInput.value != "") {
-                    let date = dueDateInput.value.split("-");
-                    dueDate = new Date(date[0], date[1], date[2]);
-                } else {
-                    dueDate = null;
-                }
-                toDoPointsList.push({
-                    "title": titleInput.value,
-                    "description": descriptionInput.value,
-                    "dueDate": dueDate,
-                    "done": doneInput.checked,
-                });
-            }
-            while (document.getElementById("toDoList").firstChild) {
-                document.getElementById("toDoList").removeChild(document.getElementById("toDoList").firstChild);
-            }
-            formToDoList();
-            while (document.getElementById("addTaskForm").firstChild) {
-                document.getElementById("addTaskForm").removeChild(document.getElementById("addTaskForm").firstChild);
-            }
-            addTaskForm();
-            event.stopImmediatePropagation();
-        });*/
 }
 
 let taskForm = document.forms['task'];
 
 function appendTask(task) {
-    return document.getElementById("toDoList").appendChild(addToDoPoint(task));
+    document.getElementById("toDoList").appendChild(addToDoPoint(task))
+    return task;
 }
 
 taskForm.addEventListener('submit', (event) => {
@@ -165,8 +138,9 @@ taskForm.addEventListener('submit', (event) => {
     }
     createTask(task)
         .then(appendTask)
-        .then(toDoPointsList.push)
+        .then(el => toDoPointsList.push(el))
         .then(_ => taskForm.reset())
+
 });
 
 function mapJsonToTask(taskJson) {
