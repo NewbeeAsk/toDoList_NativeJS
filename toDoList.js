@@ -165,6 +165,7 @@ taskForm.addEventListener('submit', (event) => {
     }
     createTask(task)
         .then(appendTask)
+        .then(toDoPointsList.push)
         .then(_ => taskForm.reset())
 });
 
