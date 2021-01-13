@@ -1,20 +1,35 @@
-body{
-    background-color:antiquewhite;
+body {
+    background-color: #B678FF;
 }
+
 .toDoPoint-title {
     font-size: 18px;
+    width: 25%;
+    padding-right: 3%;
 }
+
 .toDoPoint-description {
     color: grey;
+    width: 40%;
+    padding-right: 3%;
+    padding-top: 3%;
 }
-.toDoPoint-done{
+
+.toDoPoint_crossed-out {
+    text-decoration: line-through;
+}
+
+.toDoPoint-done {
     color: grey;
-    text-decoration:line-through;
 }
-.toDoPoint-stitched{
+
+.toDoPoint-stitched {
     color: red;
 }
+
 .toDoPoint {
+    display: flex;
+    flex-wrap: wrap;
     background-color: azure;
     border: 1px solid black;
     border-radius: 10px;
@@ -22,4 +37,57 @@ body{
     margin-left: 10%;
     margin-bottom: 10px;
     padding: 10px;
+}
+
+.toDoPoint-checkbox {
+    position: absolute;
+    right: 30%;
+}
+
+.toDoPoint-dueDate {
+    width: 30%;
+}
+
+h2 {
+    margin-left: 10%;
+    color: #FFFFFF;
+}
+
+.body_toDo-Quantity {
+    padding: 1%;
+    margin-left: 10%;
+    font-family: SF Pro Text;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: lightgray;
+}
+
+.toDoPoint-deleteButton {
+    position: absolute;
+    right: 15%;
+    -webkit-appearance: button;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px 7px 2px;
+    text-rendering: auto;
+    color: initial;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 11px system-ui;
+}
+
+.hide-done .toDoPoint-done {
+    display: none;
+}
+
+#hideUndoneToDoPoints {
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+.active-button {
+    border: 3px solid green;
 }
